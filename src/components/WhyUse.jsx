@@ -36,11 +36,15 @@ export const WhyUse = () => {
       initial="hidden"
     >
       <motion.div whileInView="visible" initial="hidden" className="p-8">
-        <motion.h2 className="text-8xl" variants={whyUseView} custom={1}>
+        <motion.h2
+          className="text-8xl  max-[420px]:text-4xl"
+          variants={whyUseView}
+          custom={1}
+        >
           Why use cashew?
         </motion.h2>
         <motion.p
-          className="text-gray-400 text-xl max-w-xs mt-8"
+          className="text-gray-400 text-xl max-w-xs mt-8 max-[420px]:text-sm"
           variants={whyUseView}
           custom={2}
         >

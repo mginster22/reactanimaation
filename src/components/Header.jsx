@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaHamburger } from "react-icons/fa";
 const menu = ["Ways to pay", "Shop", "For business"];
 
 export const Header = () => {
   const [active, setActive] = useState(false);
-  const [isSelected, setIsSelected] = useState(0);
 
   const menuList = {
     visible: (i) => ({
@@ -23,8 +22,8 @@ export const Header = () => {
 
   return (
     <div className="  shadow-2xl">
-      <div className="justify-between flex items-center py-6 container mx-auto">
-        <div>
+      <div className="justify-between flex items-center py-6 container mx-auto max-[420px]:px-8">
+        <div className="max-[420px]:w-16 max-[768px]:w-24">
           <motion.img
             src={logo}
             alt="logo"
@@ -34,30 +33,7 @@ export const Header = () => {
           />
         </div>
         <div>
-          <div className="flex ">
-            <div className="hidden">
-              <FaHamburger
-                onClick={() => setActive(!active)}
-                className="cursor-pointer "
-                size={32}
-              />
-              <div className="flex absolute list-none flex-col top-20 z-50">
-                {active &&
-                  menu.map((item, index) => (
-                    <motion.li
-                      key={index}
-                      variants={menuList}
-                      initial="hidden"
-                      animate="visible"
-                      custom={index}
-                    >
-                      {item}
-                    </motion.li>
-                  ))}
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-8">
+          <div className="flex gap-8 max-[420px]:hidden max-[768px]:hidden">
             {menu.map((item, index) => (
               <motion.li
                 key={index}
@@ -71,11 +47,11 @@ export const Header = () => {
             ))}
           </div>
         </div>
-        <div className="gap-4 flex">
+        <div className="gap-4 flex max-[420px]:flex-col  max-[420px]:gap-0 max-[420px]:-translate-x-6">
           <Link to="/">
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="p-2 rounded-lg"
+              className="p-2 rounded-lg max-[420px]:w-30 max-[420px]:text-xs"
             >
               Merchant login
             </motion.button>
@@ -83,11 +59,33 @@ export const Header = () => {
           <Link to="/">
             <motion.button
               whileHover={{ scale: 1.1 }}
-              className="bg-black text-white p-2 rounded-lg"
+              className="bg-black text-white p-2 rounded-lg max-[420px]:w-30 max-[420px]:text-xs  "
             >
               Customer login
             </motion.button>
           </Link>
+        </div>
+        <div className="hidden max-[420px]:block  max-[768px]:block relative">
+          <FaHamburger
+            onClick={() => setActive(!active)}
+            className="cursor-pointer "
+            size={26}
+          />
+          <div className=" absolute top-10 z-50 -right-1 max-w-2xl">
+            {active &&
+              menu.map((item, index) => (
+                <motion.p
+                  key={index}
+                  variants={menuList}
+                  initial="hidden"
+                  animate="visible"
+                  custom={index}
+                  className="text-md w-24"
+                >
+                  {item}
+                </motion.p>
+              ))}
+          </div>
         </div>
       </div>
     </div>

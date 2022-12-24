@@ -55,14 +55,14 @@ export const ShopGame = () => {
     >
       <motion.div whileInView="visible" initial="hidden">
         <motion.h1
-          className="text-80px max-w-2xl"
+          className="text-80px max-w-2xl max-[768px]:text-5xl  max-[420px]:text-xl "
           variants={shopView}
           custom={1}
         >
           Step up your shopping game
         </motion.h1>
         <motion.p
-          className="max-w-xs text-xl text-gray-400"
+          className="max-w-xs text-xl text-gray-400 max-[768px]:text-sm max-[768px]:mt-8"
           variants={shopView}
           custom={3}
         >
@@ -84,7 +84,7 @@ export const ShopGame = () => {
             <motion.img alt="" src={swiper} variants={shopViewY} custom={1} />
           </motion.div>
           <motion.div
-            className="flex flex-col gap-16"
+            className="flex flex-col gap-16 max-[768px]:gap-16"
             variants={shopViewY}
             custom={1}
           >
@@ -96,13 +96,17 @@ export const ShopGame = () => {
                 initial="hidden"
               >
                 <motion.b
-                  className="text-3xl"
+                  className="text-3xl max-[768px]:text-xl"
                   variants={shopViewY}
                   custom={index}
                 >
                   {title}
                 </motion.b>
-                <motion.span variants={shopViewY} custom={index}>
+                <motion.span
+                  variants={shopViewY}
+                  custom={index}
+                  className="max-[768px]:text-xs  max-[768px]:max-w-120px"
+                >
                   {subTitle}
                 </motion.span>
               </motion.div>
@@ -110,19 +114,19 @@ export const ShopGame = () => {
           </motion.div>
         </motion.div>
         <motion.div
-          className="translate-x-16"
+          className="translate-x-16  max-[768px]:-translate-x-2 max-[420px]:translate-x-2"
           whileInView="visible"
           initial="hidden"
         >
           <motion.h3
-            className="text-7xl max-w-xs"
+            className="text-7xl max-w-xs max-[1020px]:text-5xl max-[768px]:text-2xl  max-[420px]:hidden"
             variants={shopViewY}
             custom={3}
           >
             See you at checkout
           </motion.h3>
           <motion.p
-            className="max-w-xs mt-4 text-gray-400"
+            className="max-w-xs mt-4 text-gray-400 max-[1020px]:w-56  max-[420px]:hidden "
             variants={shopViewY}
             custom={4}
           >
@@ -130,7 +134,7 @@ export const ShopGame = () => {
             checkout.
           </motion.p>
         </motion.div>
-        <div>
+        <div className=" max-[768px]:w-36  max-[420px]:hidden">
           <img src={iphone} alt="iphone" />
         </div>
       </motion.div>

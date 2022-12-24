@@ -21,7 +21,7 @@ const ButtonLink = ({ title }) => {
   };
   return (
     <motion.button
-      className="absolute border border-violet-400 rounded-3xl p-2 text-violet-400 z-50 bottom-4 left-2"
+      className="absolute border border-violet-400 rounded-3xl p-2 text-violet-400 z-50 bottom-4 left-2 max-[1020px]:text-xs max-[768px]:text-12px max-[768px]:bottom-1 "
       whileInView="visible"
       initial="hidden"
       variants={categoriesView}
@@ -48,11 +48,15 @@ export const Categories = () => {
   };
   return (
     <motion.div whileInView="visible" initial="hidden" className="py-4">
-      <motion.h2 className="text-80px" variants={categoriesView} custom={1}>
+      <motion.h2
+        className="text-80px  max-[420px]:text-4xl"
+        variants={categoriesView}
+        custom={1}
+      >
         Categories
       </motion.h2>
       <motion.div
-        className="flex flex-auto items-center gap-6 justify-center "
+        className="flex  items-center gap-6 justify-center  max-[420px]:flex-col"
         whileInView="visible"
         initial="hidden"
       >
@@ -89,7 +93,7 @@ export const Categories = () => {
             <ButtonLink title="Beauty & health" />
           </motion.div>
         </motion.div>
-        <motion.div className="relative">
+        <motion.div className="relative ">
           <motion.img
             src={flower}
             alt="sd"
